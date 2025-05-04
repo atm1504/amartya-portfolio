@@ -1,4 +1,3 @@
-
 import { Card, CardContent } from "@/components/ui/card";
 import { Layers, MessageSquareCode } from "lucide-react";
 
@@ -12,8 +11,8 @@ const Skills = () => {
         "HTML5",
         "CSS3",
         "TypeScript",
-        "Tailwind CSS"
-      ]
+        "Tailwind CSS",
+      ],
     },
     {
       title: "Backend",
@@ -24,28 +23,16 @@ const Skills = () => {
         "Flask",
         "PHP",
         "Springboot",
-        "Loopback"
-      ]
+        "Loopback",
+      ],
     },
     {
       title: "Mobile",
-      skills: [
-        "Android",
-        "Java",
-        "Kotlin",
-        "React Native"
-      ]
+      skills: ["Android", "Java", "Kotlin", "React Native"],
     },
     {
       title: "Database & Cloud",
-      skills: [
-        "AWS",
-        "MongoDB",
-        "MySQL",
-        "PostgreSQL",
-        "DynamoDB",
-        "Firebase"
-      ]
+      skills: ["AWS", "MongoDB", "MySQL", "PostgreSQL", "DynamoDB", "Firebase"],
     },
     {
       title: "AI & LLM",
@@ -56,17 +43,12 @@ const Skills = () => {
         "MCP",
         "RAG",
         "Embeddings",
-        "Vector DBs"
-      ]
+        "Vector DBs",
+      ],
     },
     {
       title: "Other Languages",
-      skills: [
-        "Python",
-        "C/C++",
-        "Java",
-        "Solidity"
-      ]
+      skills: ["Python", "C/C++", "Java", "Solidity"],
     },
     {
       title: "Tools & Technologies",
@@ -76,9 +58,9 @@ const Skills = () => {
         "Web Scraping",
         "Blockchain",
         "Ethereum",
-        "CI/CD"
-      ]
-    }
+        "CI/CD",
+      ],
+    },
   ];
 
   return (
@@ -88,7 +70,9 @@ const Skills = () => {
           <div className="inline-block">
             <div className="flex items-center space-x-3 mb-2">
               <div className="h-1 w-10 bg-tech-purple rounded"></div>
-              <p className="text-tech-purple font-mono text-sm tracking-wider">MY SKILLS</p>
+              <p className="text-tech-purple font-mono text-sm tracking-wider">
+                MY SKILLS
+              </p>
               <div className="h-1 w-10 bg-tech-purple rounded"></div>
             </div>
           </div>
@@ -96,28 +80,34 @@ const Skills = () => {
             Technical <span className="text-tech-purple">Expertise</span>
           </h2>
           <p className="text-foreground/70 max-w-2xl">
-            I've worked with a diverse range of technologies across the full stack development
-            spectrum. I'm always experimenting with new tools and technologies to stay ahead of the curve.
+            I've worked with a diverse range of technologies across the full
+            stack development spectrum. I'm always experimenting with new tools
+            and technologies to stay ahead of the curve.
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {skillCategories.map((category, index) => (
-            <Card key={index} className="card-hover overflow-hidden border border-muted bg-background">
+            <Card
+              key={index}
+              className="card-hover overflow-hidden border border-muted bg-background"
+            >
               <CardContent className="p-0">
                 <div className="h-2 bg-gradient-to-r from-tech-purple to-tech-blue"></div>
                 <div className="p-6">
                   <div className="flex items-center gap-2 mb-4">
-                    {category.title === "AI & LLM" && <Layers size={18} className="text-tech-purple" />}
+                    {category.title === "AI & LLM" && (
+                      <Layers size={18} className="text-tech-purple" />
+                    )}
                     <h3 className="text-xl font-bold">{category.title}</h3>
                   </div>
                   <div className="flex flex-wrap gap-2">
                     {category.skills.map((skill, skillIndex) => (
-                      <span 
+                      <span
                         key={skillIndex}
                         className={`px-3 py-1 rounded-full text-sm ${
-                          category.title === "AI & LLM" 
-                            ? "bg-tech-purple/10 text-tech-purple border border-tech-purple/20" 
+                          category.title === "AI & LLM"
+                            ? "bg-tech-purple/10 text-tech-purple border border-tech-purple/20"
                             : "bg-secondary text-foreground/80"
                         }`}
                       >
@@ -132,7 +122,9 @@ const Skills = () => {
         </div>
 
         <div className="mt-20">
-          <h3 className="text-2xl font-bold mb-8 text-center">Technical Proficiency</h3>
+          <h3 className="text-2xl font-bold mb-8 text-center">
+            Technical Proficiency
+          </h3>
           <div className="grid md:grid-cols-2 gap-8">
             <div className="space-y-6">
               <SkillBar skill="Web Development" percentage={95} />
@@ -163,7 +155,9 @@ const SkillBar = ({ skill, percentage }: SkillBarProps) => {
     <div className="space-y-2">
       <div className="flex justify-between items-center">
         <span className="text-sm font-medium">{skill}</span>
-        <span className="text-sm text-tech-purple font-bold">{percentage}%</span>
+        <span className="text-sm text-tech-purple font-bold">
+          {percentage}%
+        </span>
       </div>
       <div className="h-2 bg-secondary rounded-full overflow-hidden">
         <div
