@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -13,7 +12,7 @@ const Contact = () => {
     name: "",
     email: "",
     subject: "",
-    message: ""
+    message: "",
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -28,7 +27,7 @@ const Contact = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     // Simulate form submission
     setTimeout(() => {
       setIsSubmitting(false);
@@ -40,7 +39,7 @@ const Contact = () => {
         name: "",
         email: "",
         subject: "",
-        message: ""
+        message: "",
       });
     }, 1500);
   };
@@ -51,22 +50,22 @@ const Contact = () => {
       title: "Email",
       value: "atm1504.in@gmail.com",
       link: "mailto:atm1504.in@gmail.com",
-      description: "Personal Email"
+      description: "Personal Email",
     },
     {
       icon: <Mail className="text-tech-purple" size={24} />,
       title: "Work Email",
       value: "amartya@work.com",
       link: "mailto:amartya@work.com",
-      description: "Professional Inquiries"
+      description: "Professional Inquiries",
     },
     {
       icon: <User className="text-tech-purple" size={24} />,
       title: "Location",
       value: "Durgapur, India",
       link: "#",
-      description: "Currently Based In"
-    }
+      description: "Currently Based In",
+    },
   ];
 
   const socialLinks = [
@@ -74,20 +73,20 @@ const Contact = () => {
       icon: <Github size={24} />,
       title: "GitHub",
       url: "https://github.com/atm1504",
-      username: "atm1504"
+      username: "atm1504",
     },
     {
       icon: <Linkedin size={24} />,
       title: "LinkedIn",
       url: "https://linkedin.com/in/atm1504",
-      username: "atm1504"
+      username: "atm1504",
     },
     {
       icon: <Twitter size={24} />,
       title: "Twitter",
       url: "https://twitter.com/AmartyaMondal7",
-      username: "AmartyaMondal7"
-    }
+      username: "AmartyaMondal7",
+    },
   ];
 
   return (
@@ -96,13 +95,15 @@ const Contact = () => {
         className="absolute bottom-0 left-0 w-96 h-96 bg-tech-blue/10 rounded-full blur-3xl -z-10"
         aria-hidden="true"
       />
-      
+
       <div className="container mx-auto">
         <div className="flex flex-col items-center text-center mb-16">
           <div className="inline-block">
             <div className="flex items-center space-x-3 mb-2">
               <div className="h-1 w-10 bg-tech-purple rounded"></div>
-              <p className="text-tech-purple font-mono text-sm tracking-wider">GET IN TOUCH</p>
+              <p className="text-tech-purple font-mono text-sm tracking-wider">
+                GET IN TOUCH
+              </p>
               <div className="h-1 w-10 bg-tech-purple rounded"></div>
             </div>
           </div>
@@ -111,21 +112,27 @@ const Contact = () => {
           </h2>
           <p className="text-foreground/70 max-w-2xl">
             Have a project in mind or want to explore potential collaborations?
-            Feel free to reach out, and I'll get back to you as soon as possible.
+            Feel free to reach out, and I'll get back to you as soon as
+            possible.
           </p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8 mb-16">
           {contactInfo.map((item, index) => (
-            <Card key={index} className="card-hover border border-muted bg-card/50">
+            <Card
+              key={index}
+              className="card-hover border border-muted bg-card/50"
+            >
               <CardContent className="flex flex-col items-center text-center p-6">
                 <div className="p-4 bg-secondary rounded-full mb-4">
                   {item.icon}
                 </div>
                 <h3 className="text-xl font-bold mb-1">{item.title}</h3>
-                <p className="text-sm text-foreground/70 mb-2">{item.description}</p>
-                <a 
-                  href={item.link} 
+                <p className="text-sm text-foreground/70 mb-2">
+                  {item.description}
+                </p>
+                <a
+                  href={item.link}
                   className="text-tech-purple hover:underline"
                 >
                   {item.value}
@@ -136,13 +143,15 @@ const Contact = () => {
         </div>
 
         <div className="mb-16">
-          <h3 className="text-xl font-bold mb-6 text-center">Connect on Social Media</h3>
+          <h3 className="text-xl font-bold mb-6 text-center">
+            Connect on Social Media
+          </h3>
           <div className="flex justify-center space-x-6">
             {socialLinks.map((link, index) => (
-              <a 
+              <a
                 key={index}
-                href={link.url} 
-                target="_blank" 
+                href={link.url}
+                target="_blank"
                 rel="noopener noreferrer"
                 className="flex flex-col items-center p-4 hover:bg-secondary rounded-lg transition-colors"
               >
@@ -150,7 +159,9 @@ const Contact = () => {
                   {link.icon}
                 </div>
                 <span className="text-sm font-medium">{link.title}</span>
-                <span className="text-xs text-foreground/70">@{link.username}</span>
+                <span className="text-xs text-foreground/70">
+                  @{link.username}
+                </span>
               </a>
             ))}
           </div>
@@ -162,9 +173,10 @@ const Contact = () => {
               <div className="p-8 bg-gradient-to-br from-tech-purple to-tech-blue text-white">
                 <h3 className="text-2xl font-bold mb-4">Send Me a Message</h3>
                 <p className="mb-6 text-white/80">
-                  I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
+                  I'm always open to discussing new projects, creative ideas, or
+                  opportunities to be part of your vision.
                 </p>
-                
+
                 <div className="space-y-6">
                   <div className="flex items-center space-x-3">
                     <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center">
@@ -175,23 +187,28 @@ const Contact = () => {
                       <div className="font-medium">atm1504.in@gmail.com</div>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-center space-x-3">
                     <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center">
                       <Github size={20} className="text-white" />
                     </div>
                     <div>
-                      <div className="text-sm text-white/70">Find me on GitHub</div>
+                      <div className="text-sm text-white/70">
+                        Find me on GitHub
+                      </div>
                       <div className="font-medium">@atm1504</div>
                     </div>
                   </div>
                 </div>
               </div>
-              
+
               <div className="p-8">
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div>
-                    <label htmlFor="name" className="text-sm font-medium block mb-1">
+                    <label
+                      htmlFor="name"
+                      className="text-sm font-medium block mb-1"
+                    >
                       Name
                     </label>
                     <Input
@@ -203,9 +220,12 @@ const Contact = () => {
                       required
                     />
                   </div>
-                  
+
                   <div>
-                    <label htmlFor="email" className="text-sm font-medium block mb-1">
+                    <label
+                      htmlFor="email"
+                      className="text-sm font-medium block mb-1"
+                    >
                       Email
                     </label>
                     <Input
@@ -218,9 +238,12 @@ const Contact = () => {
                       required
                     />
                   </div>
-                  
+
                   <div>
-                    <label htmlFor="subject" className="text-sm font-medium block mb-1">
+                    <label
+                      htmlFor="subject"
+                      className="text-sm font-medium block mb-1"
+                    >
                       Subject
                     </label>
                     <Input
@@ -232,9 +255,12 @@ const Contact = () => {
                       required
                     />
                   </div>
-                  
+
                   <div>
-                    <label htmlFor="message" className="text-sm font-medium block mb-1">
+                    <label
+                      htmlFor="message"
+                      className="text-sm font-medium block mb-1"
+                    >
                       Message
                     </label>
                     <Textarea
@@ -247,7 +273,7 @@ const Contact = () => {
                       required
                     />
                   </div>
-                  
+
                   <Button
                     type="submit"
                     className="w-full bg-tech-purple hover:bg-tech-purple/90"

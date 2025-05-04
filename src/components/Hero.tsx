@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Github, Linkedin, Mail, Twitter } from "lucide-react";
 import { Card } from "@/components/ui/card";
@@ -9,27 +8,27 @@ const Hero = () => {
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   const [showCursor, setShowCursor] = useState(true);
-  
+
   const textArray = [
     "building digital solutions",
     "creating innovative apps",
     "engineering web platforms",
     "experimenting with cloud tech",
-    "developing blockchain systems"
+    "developing blockchain systems",
   ];
 
   useEffect(() => {
     const interval = setInterval(() => {
       setShowCursor((prev) => !prev);
     }, 500);
-    
+
     return () => clearInterval(interval);
   }, []);
 
   useEffect(() => {
     const currentText = textArray[currentTextIndex];
     const typeSpeed = isDeleting ? 50 : 100;
-    
+
     const timeout = setTimeout(() => {
       if (!isDeleting && typedText === currentText) {
         // Wait before starting to delete
@@ -39,13 +38,13 @@ const Hero = () => {
         setCurrentTextIndex((currentTextIndex + 1) % textArray.length);
       } else {
         setTypedText(
-          isDeleting 
-            ? currentText.substring(0, typedText.length - 1) 
+          isDeleting
+            ? currentText.substring(0, typedText.length - 1)
             : currentText.substring(0, typedText.length + 1)
         );
       }
     }, typeSpeed);
-    
+
     return () => clearTimeout(timeout);
   }, [typedText, currentTextIndex, isDeleting, textArray]);
 
@@ -79,20 +78,32 @@ const Hero = () => {
               {showCursor && <span className="animate-blink">|</span>}
             </span>
           </h1>
-          
+
           <div className="relative pl-4 border-l-2 border-tech-purple">
             <p className="text-lg text-foreground/80">
-              Hello, I'm <span className="font-bold text-foreground">Amartya Mondal</span> (atm),
-              an innovative full stack developer with expertise in web, mobile, and blockchain
-              technologies. Always eager to learn, experiment, and build impactful solutions.
+              Hello, I'm{" "}
+              <span className="font-bold text-foreground">Amartya Mondal</span>{" "}
+              (atm), an innovative full stack developer with expertise in web,
+              mobile, and blockchain technologies. Always eager to learn,
+              experiment, and build impactful solutions.
             </p>
           </div>
 
           <div className="flex flex-wrap gap-4 pt-4">
-            <Button onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })} className="bg-tech-purple hover:bg-tech-purple/90 text-white">
+            <Button
+              onClick={() =>
+                document
+                  .getElementById("projects")
+                  ?.scrollIntoView({ behavior: "smooth" })
+              }
+              className="bg-tech-purple hover:bg-tech-purple/90 text-white"
+            >
               View Projects
             </Button>
-            <Button variant="outline" className="border-tech-purple text-tech-purple">
+            <Button
+              variant="outline"
+              className="border-tech-purple text-tech-purple"
+            >
               Download CV
             </Button>
           </div>
@@ -139,58 +150,84 @@ const Hero = () => {
               <div className="w-3 h-3 rounded-full bg-green-500"></div>
             </div>
             <pre className="font-mono">
-              <span className="text-tech-green">$</span> <span className="text-tech-cyan">whoami</span>
+              <span className="text-tech-green">$</span>{" "}
+              <span className="text-tech-cyan">whoami</span>
               <br />
               atm1504
-              <br /><br />
-              <span className="text-tech-green">$</span> <span className="text-tech-cyan">cat</span> atm_profile.json
+              <br />
+              <br />
+              <span className="text-tech-green">$</span>{" "}
+              <span className="text-tech-cyan">cat</span> atm_profile.json
               <br />
               {`{`}
               <br />
-              {"  "}<span className="text-tech-purple">"name"</span>: <span className="text-tech-cyan">"Amartya Mondal"</span>,
+              {"  "}
+              <span className="text-tech-purple">"name"</span>:{" "}
+              <span className="text-tech-cyan">"Amartya Mondal"</span>,
               <br />
-              {"  "}<span className="text-tech-purple">"alias"</span>: <span className="text-tech-cyan">"atm1504"</span>,
+              {"  "}
+              <span className="text-tech-purple">"alias"</span>:{" "}
+              <span className="text-tech-cyan">"atm1504"</span>,
               <br />
-              {"  "}<span className="text-tech-purple">"role"</span>: <span className="text-tech-cyan">"Engineering Manager"</span>,
+              {"  "}
+              <span className="text-tech-purple">"role"</span>:{" "}
+              <span className="text-tech-cyan">"Engineering Manager"</span>,
               <br />
-              {"  "}<span className="text-tech-purple">"location"</span>: <span className="text-tech-cyan">"Durgapur/Chennai/Global"</span>,
+              {"  "}
+              <span className="text-tech-purple">"location"</span>:{" "}
+              <span className="text-tech-cyan">"Durgapur/Chennai/Global"</span>,
               <br />
-              {"  "}<span className="text-tech-purple">"traits"</span>: [
+              {"  "}
+              <span className="text-tech-purple">"traits"</span>: [
               <br />
-              {"    "}<span className="text-tech-cyan">"Innovative"</span>,
+              {"    "}
+              <span className="text-tech-cyan">"Innovative"</span>,
               <br />
-              {"    "}<span className="text-tech-cyan">"Experimental"</span>,
+              {"    "}
+              <span className="text-tech-cyan">"Experimental"</span>,
               <br />
-              {"    "}<span className="text-tech-cyan">"Curious"</span>,
+              {"    "}
+              <span className="text-tech-cyan">"Curious"</span>,
               <br />
-              {"    "}<span className="text-tech-cyan">"Problem Solver"</span>,
+              {"    "}
+              <span className="text-tech-cyan">"Problem Solver"</span>,
               <br />
-              {"    "}<span className="text-tech-cyan">"Leader"</span>,
+              {"    "}
+              <span className="text-tech-cyan">"Leader"</span>,
               <br />
-              {"    "}<span className="text-tech-cyan">"Life-long Learner"</span>
+              {"    "}
+              <span className="text-tech-cyan">"Life-long Learner"</span>
               <br />
               {"  "}],
               <br />
-              {"  "}<span className="text-tech-purple">"expertise"</span>: [
+              {"  "}
+              <span className="text-tech-purple">"expertise"</span>: [
               <br />
-              {"    "}<span className="text-tech-cyan">"Web Development"</span>,
+              {"    "}
+              <span className="text-tech-cyan">"Web Development"</span>,
               <br />
-              {"    "}<span className="text-tech-cyan">"Mobile Apps"</span>,
+              {"    "}
+              <span className="text-tech-cyan">"Mobile Apps"</span>,
               <br />
-              {"    "}<span className="text-tech-cyan">"Cloud Services"</span>,
+              {"    "}
+              <span className="text-tech-cyan">"Cloud Services"</span>,
               <br />
-              {"    "}<span className="text-tech-cyan">"Blockchain"</span>,
+              {"    "}
+              <span className="text-tech-cyan">"Blockchain"</span>,
               <br />
-              {"    "}<span className="text-tech-cyan">"Team Leadership"</span>,
+              {"    "}
+              <span className="text-tech-cyan">"Team Leadership"</span>,
               <br />
-              {"    "}<span className="text-tech-cyan">"System Design"</span>
+              {"    "}
+              <span className="text-tech-cyan">"System Design"</span>
               <br />
               {"  "}]
               <br />
               {`}`}
               <br />
               <br />
-              <span className="text-tech-green">$</span> <span className="inline-block h-5 w-2 bg-white/70 animate-blink"></span>
+              <span className="text-tech-green">$</span>{" "}
+              <span className="inline-block h-5 w-2 bg-white/70 animate-blink"></span>
             </pre>
           </Card>
           <div className="absolute -z-10 inset-0 translate-x-4 translate-y-4 bg-tech-purple/20 rounded-lg"></div>

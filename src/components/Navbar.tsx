@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Code, Menu, Moon, Sun, X } from "lucide-react";
@@ -29,12 +28,12 @@ const Navbar = () => {
   };
 
   const cycleTheme = () => {
-    if (theme === 'dark') {
-      setTheme('light');
-    } else if (theme === 'light') {
-      setTheme('system');
+    if (theme === "dark") {
+      setTheme("light");
+    } else if (theme === "light") {
+      setTheme("system");
     } else {
-      setTheme('dark');
+      setTheme("dark");
     }
   };
 
@@ -52,24 +51,25 @@ const Navbar = () => {
             <Code size={20} className="text-white" />
           </div>
           <span className="text-xl font-bold tracking-tight">
-            <span className="text-tech-purple">atm</span>1504<span className="text-tech-purple">.dev</span>
+            <span className="text-tech-purple">atm</span>1504
+            <span className="text-tech-purple">.dev</span>
           </span>
         </a>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center space-x-6">
           <NavLinks />
-          
-          <Button 
-            variant="ghost" 
+
+          <Button
+            variant="ghost"
             size="icon"
             onClick={cycleTheme}
             className="rounded-full"
             title={`Current theme: ${theme}. Click to change.`}
           >
-            {theme === 'dark' ? (
+            {theme === "dark" ? (
               <Moon size={18} />
-            ) : theme === 'light' ? (
+            ) : theme === "light" ? (
               <Sun size={18} />
             ) : (
               <div className="relative">
@@ -78,18 +78,22 @@ const Navbar = () => {
               </div>
             )}
           </Button>
-          
-          <Button 
-            variant="outline" 
+
+          <Button
+            variant="outline"
             className="px-6"
             onClick={() => window.open("/resume.pdf", "_blank")}
           >
             Resume
           </Button>
-          
-          <Button 
+
+          <Button
             className="bg-tech-purple hover:bg-tech-purple/90 text-white"
-            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+            onClick={() =>
+              document
+                .getElementById("contact")
+                ?.scrollIntoView({ behavior: "smooth" })
+            }
           >
             Contact
           </Button>
@@ -97,15 +101,15 @@ const Navbar = () => {
 
         {/* Mobile Menu Button */}
         <div className="flex md:hidden items-center gap-2">
-          <Button 
-            variant="ghost" 
+          <Button
+            variant="ghost"
             size="icon"
             onClick={cycleTheme}
             className="rounded-full"
           >
-            {theme === 'dark' ? (
+            {theme === "dark" ? (
               <Moon size={18} />
-            ) : theme === 'light' ? (
+            ) : theme === "light" ? (
               <Sun size={18} />
             ) : (
               <div className="relative">
@@ -114,7 +118,7 @@ const Navbar = () => {
               </div>
             )}
           </Button>
-          
+
           <button
             className="text-foreground p-2 rounded-md"
             onClick={toggleMenu}
@@ -130,8 +134,8 @@ const Navbar = () => {
           <div className="container mx-auto flex flex-col space-y-4">
             <NavLinks mobile toggleMenu={toggleMenu} />
             <div className="flex flex-col space-y-2 pt-2 border-t">
-              <Button 
-                variant="ghost" 
+              <Button
+                variant="ghost"
                 className="w-full justify-start"
                 onClick={() => {
                   window.open("/resume.pdf", "_blank");
@@ -140,10 +144,12 @@ const Navbar = () => {
               >
                 Resume
               </Button>
-              <Button 
+              <Button
                 className="w-full bg-tech-purple hover:bg-tech-purple/90 text-white"
                 onClick={() => {
-                  document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                  document
+                    .getElementById("contact")
+                    ?.scrollIntoView({ behavior: "smooth" });
                   toggleMenu();
                 }}
               >

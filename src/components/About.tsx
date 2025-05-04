@@ -1,4 +1,3 @@
-
 import { Card, CardContent } from "@/components/ui/card";
 import { Briefcase, Code, Computer, Users, Globe, Book } from "lucide-react";
 
@@ -9,22 +8,26 @@ const About = () => {
         className="absolute top-40 right-0 w-96 h-96 bg-tech-blue/10 rounded-full blur-3xl -z-10"
         aria-hidden="true"
       />
-      
+
       <div className="container mx-auto">
         <div className="flex flex-col items-center text-center mb-16">
           <div className="inline-block">
             <div className="flex items-center space-x-3 mb-2">
               <div className="h-1 w-10 bg-tech-purple rounded"></div>
-              <p className="text-tech-purple font-mono text-sm tracking-wider">ABOUT ME</p>
+              <p className="text-tech-purple font-mono text-sm tracking-wider">
+                ABOUT ME
+              </p>
               <div className="h-1 w-10 bg-tech-purple rounded"></div>
             </div>
           </div>
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Building <span className="text-tech-purple">Digital Experiences</span>
+            Building{" "}
+            <span className="text-tech-purple">Digital Experiences</span>
           </h2>
           <p className="text-foreground/70 max-w-2xl">
-            Hello, I am Amartya Mondal (atm), a full stack developer and engineering manager passionate about
-            building innovative websites, mobile applications, and cloud solutions with emerging technologies.
+            Hello, I am Amartya Mondal (atm), a full stack developer and
+            engineering manager passionate about building innovative websites,
+            mobile applications, and cloud solutions with emerging technologies.
           </p>
         </div>
 
@@ -32,14 +35,17 @@ const About = () => {
           <div className="space-y-4">
             <h3 className="text-2xl font-bold">My Journey</h3>
             <p className="text-foreground/70">
-              As a Mechanical Engineering graduate from IIT Patna, I've combined my analytical
-              skills with my passion for coding. I've worked with leading companies like C1X Adtech,
-              Oracle, and Deloitte, developing innovative solutions and leading technical teams.
+              As a Mechanical Engineering graduate from IIT Patna, I've combined
+              my analytical skills with my passion for coding. I've worked with
+              leading companies like C1X Adtech, Oracle, and Deloitte,
+              developing innovative solutions and leading technical teams.
             </p>
             <p className="text-foreground/70">
-              I thrive on experimenting with new technologies and creating impactful products. Whether it's 
-              developing mobile apps, crafting efficient APIs, implementing blockchain solutions, or integrating 
-              AI technologies, I approach each project with enthusiasm and a commitment to excellence.
+              I thrive on experimenting with new technologies and creating
+              impactful products. Whether it's developing mobile apps, crafting
+              efficient APIs, implementing blockchain solutions, or integrating
+              AI technologies, I approach each project with enthusiasm and a
+              commitment to excellence.
             </p>
             <div className="p-4 bg-tech-purple/10 rounded-lg border border-tech-purple/20 mt-4">
               <h4 className="font-bold mb-2 flex items-center gap-2">
@@ -47,13 +53,15 @@ const About = () => {
                 Global Presence
               </h4>
               <p className="text-sm text-foreground/80">
-                My work takes me across different locations - from my home in Durgapur to our office in Chennai, 
-                and occasionally on international trips for client meetings and collaborative projects. 
-                This mobility has enriched my perspective and approach to problem-solving.
+                My work takes me across different locations - from my home in
+                Durgapur to our office in Chennai, and occasionally on
+                international trips for client meetings and collaborative
+                projects. This mobility has enriched my perspective and approach
+                to problem-solving.
               </p>
             </div>
           </div>
-          
+
           <div className="grid grid-cols-2 gap-4">
             <ExperienceCard
               icon={<Code className="text-tech-purple" size={24} />}
