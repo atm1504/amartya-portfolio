@@ -124,7 +124,9 @@ const Footer = () => {
               </li>
               <li className="flex items-start space-x-2">
                 <Mail size={18} className="mt-1 text-tech-purple" />
-                <span className="text-white/70">Work: amartya@work.com</span>
+                <span className="text-white/70">
+                  Work: amartya.mondal@c1exchange.com
+                </span>
               </li>
               <li className="flex items-start space-x-2">
                 <div className="flex-shrink-0 w-[18px] h-[18px] mt-1 flex items-center justify-center">
@@ -144,7 +146,7 @@ const Footer = () => {
                     <circle cx="12" cy="10" r="3" />
                   </svg>
                 </div>
-                <span className="text-white/70">Durgapur, India</span>
+                <span className="text-white/70">Chennai, India</span>
               </li>
             </ul>
           </div>

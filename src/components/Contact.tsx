@@ -55,14 +55,14 @@ const Contact = () => {
     {
       icon: <Mail className="text-tech-purple" size={24} />,
       title: "Work Email",
-      value: "amartya@work.com",
-      link: "mailto:amartya@work.com",
+      value: "amartya.mondal@c1exchange.com",
+      link: "mailto:amartya.mondal@c1exchange.com",
       description: "Professional Inquiries",
     },
     {
       icon: <User className="text-tech-purple" size={24} />,
       title: "Location",
-      value: "Durgapur, India",
+      value: "Chennai, India",
       link: "#",
       description: "Currently Based In",
     },
