@@ -3,55 +3,96 @@ import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Github, ExternalLink } from "lucide-react";
+import { Code, ExternalLink, Github, Play } from "lucide-react";
 
 const Projects = () => {
   const [filter, setFilter] = useState("all");
 
   const projects = [
     {
-      title: "DOOH",
-      description: "A technology platform to reform how digital ads are shown on large LCD screens. Leading the development team at C1X for this massive project.",
-      technologies: ["Node.js", "React", "AWS", "Docker", "MongoDB"],
-      category: "web",
+      title: "DOOH (Digital Out Of Home)",
+      description: "Led cross-device ad rendering targeting offline customers through digital hoardings. Spearheading implementation using NestJS, Android box, and RPI.",
+      technologies: ["Node.js", "NestJS", "React", "AWS", "Docker", "MongoDB"],
+      category: ["web", "cloud", "professional"],
+      image: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+      featured: true,
+      private: true
+    },
+    {
+      title: "CDMP Platform",
+      description: "Directed the development of a comprehensive Customer Data Management Platform for customer management and led Email Promotion and Push Promotion teams.",
+      technologies: ["Node.js", "React", "AWS", "Docker", "MongoDB", "Redis"],
+      category: ["web", "cloud", "professional"],
       image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
-      featured: true
+      featured: true,
+      private: true
+    },
+    {
+      title: "Copy2Paste",
+      description: "Chrome extension that lets you upload multiple files and copy all their details in one click. Great for extracting text to use in multiple AI chats or websites.",
+      technologies: ["JavaScript", "Chrome API", "HTML", "CSS"],
+      category: ["web", "extension", "personal"],
+      image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+      github: "https://github.com/atm1504/copy2paste",
+      demo: "https://chromewebstore.google.com/detail/copy2paste/xyz"
     },
     {
       title: "Stocktick Capital",
       description: "A financial management tool portal with Android app, website and backend. Led team development for this contracted financial management solution.",
       technologies: ["Android", "React", "Node.js", "MongoDB", "REST API"],
-      category: "mobile",
-      image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+      category: ["mobile", "web", "professional"],
+      image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+      github: "https://github.com/atm1504/stocktick-capital"
     },
     {
       title: "Barbera",
-      description: "Developed the entire project including Android app, backend, and admin panel for this startup. The app is available on Play Store.",
-      technologies: ["Android", "Kotlin", "Node.js", "MongoDB", "Firebase"],
-      category: "mobile",
-      image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+      description: "A salon service app for a startup. Developed the entire project including Android app, backend, and admin panel. The app is available on Play Store.",
+      technologies: ["Android", "Kotlin", "Node.js", "MongoDB", "AWS", "DynamoDB", "Lambda"],
+      category: ["mobile", "cloud", "professional"],
+      image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+      demo: "https://play.google.com/store/apps/details?id=com.barbera.app"
+    },
+    {
+      title: "Greymatter Tech",
+      description: "An Agritech startup platform to supply farmers with basic supplies and farm equipment. Created solutions to bridge the technology gap in agriculture.",
+      technologies: ["Flutter", "Python", "AWS", "MySQL"],
+      category: ["mobile", "cloud", "professional"],
+      image: "https://images.unsplash.com/photo-1500651230702-0e2d8a49d4ad?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+      video: "https://www.youtube.com/watch?v=xyz"
     },
     {
       title: "WhatsApp Bot",
       description: "Developed scripts that act as WhatsApp Bots to spy on online times, send automatic replies, and send multiple messages to users.",
       technologies: ["Python", "JavaScript", "Web Scraping", "API Integration"],
-      category: "automation",
-      image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+      category: ["automation", "personal"],
+      image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+      github: "https://github.com/atm1504/whatsapp-bot"
     },
     {
       title: "Digital Identity",
       description: "A blockchain-based system where each person has one unique identity. Personal information is stored in Hyperledger Blockchain for increased efficiency.",
       technologies: ["Blockchain", "Hyperledger", "JavaScript", "Node.js"],
-      category: "blockchain",
+      category: ["blockchain", "web"],
       image: "https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
-      featured: true
+      featured: true,
+      github: "https://github.com/atm1504/digital-identity"
+    },
+    {
+      title: "Shabd App",
+      description: "An educational app for autism patients built as a team project. Designed to assist with communication and learning challenges.",
+      technologies: ["Android", "Java", "Firebase"],
+      category: ["mobile", "education"],
+      image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+      github: "https://github.com/atm1504/shabd-app"
     },
     {
       title: "SUSI.AI Android Client",
       description: "GSoC'19 project focusing on integrating SUSI smart speaker with the Android app. Contributed to FOSSASIA organization.",
       technologies: ["Android", "Java", "AI", "API Integration"],
-      category: "mobile",
-      image: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+      category: ["mobile", "open-source"],
+      image: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+      github: "https://github.com/fossasia/susi_android",
+      demo: "https://play.google.com/store/apps/details?id=ai.susi"
     }
   ];
 
@@ -60,12 +101,17 @@ const Projects = () => {
     { id: "web", label: "Web" },
     { id: "mobile", label: "Mobile" },
     { id: "blockchain", label: "Blockchain" },
-    { id: "automation", label: "Automation" }
+    { id: "automation", label: "Automation" },
+    { id: "extension", label: "Extensions" },
+    { id: "cloud", label: "Cloud" },
+    { id: "professional", label: "Professional" },
+    { id: "personal", label: "Personal" },
+    { id: "open-source", label: "Open Source" }
   ];
 
   const filteredProjects = filter === "all" 
     ? projects 
-    : projects.filter(project => project.category === filter);
+    : projects.filter(project => project.category.includes(filter));
 
   return (
     <section id="projects" className="py-20 bg-muted/50">
@@ -82,11 +128,11 @@ const Projects = () => {
             Featured <span className="text-tech-purple">Work</span>
           </h2>
           <p className="text-foreground/70 max-w-2xl">
-            A showcase of my projects spanning web, mobile, blockchain, and automation technologies.
-            Each project represents unique challenges and solutions.
+            A showcase of my innovative projects spanning web, mobile, blockchain, and automation technologies.
+            Each project represents unique challenges and creative solutions I've developed.
           </p>
 
-          <div className="flex flex-wrap justify-center gap-2 mt-8">
+          <div className="flex flex-wrap justify-center gap-2 mt-8 max-w-4xl">
             {categories.map((category) => (
               <Button
                 key={category.id}
@@ -95,8 +141,9 @@ const Projects = () => {
                   filter === category.id
                     ? "bg-tech-purple hover:bg-tech-purple/90"
                     : "border-tech-purple/50 text-foreground/70 hover:text-tech-purple"
-                }`}
+                } mb-2`}
                 onClick={() => setFilter(category.id)}
+                size="sm"
               >
                 {category.label}
               </Button>
@@ -111,8 +158,12 @@ const Projects = () => {
         </div>
 
         <div className="text-center mt-12">
-          <Button variant="outline" className="border-tech-purple text-tech-purple">
-            View More Projects
+          <Button 
+            variant="outline" 
+            className="border-tech-purple text-tech-purple"
+            onClick={() => window.open("https://github.com/atm1504", "_blank")}
+          >
+            View More Projects on GitHub
           </Button>
         </div>
       </div>
@@ -124,9 +175,13 @@ interface Project {
   title: string;
   description: string;
   technologies: string[];
-  category: string;
+  category: string[];
   image: string;
   featured?: boolean;
+  private?: boolean;
+  github?: string;
+  demo?: string;
+  video?: string;
 }
 
 const ProjectCard = ({ project }: { project: Project }) => {
@@ -139,11 +194,18 @@ const ProjectCard = ({ project }: { project: Project }) => {
           alt={project.title}
           className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
         />
-        {project.featured && (
-          <Badge className="absolute top-4 right-4 z-20 bg-tech-purple">
-            Featured
-          </Badge>
-        )}
+        <div className="absolute top-4 right-4 z-20 space-y-2">
+          {project.featured && (
+            <Badge className="bg-tech-purple">
+              Featured
+            </Badge>
+          )}
+          {project.private && (
+            <Badge className="bg-tech-dark text-white">
+              Private
+            </Badge>
+          )}
+        </div>
       </div>
       <CardContent className="p-6 flex-grow flex flex-col">
         <h3 className="text-xl font-bold mb-2">{project.title}</h3>
@@ -167,12 +229,26 @@ const ProjectCard = ({ project }: { project: Project }) => {
           </div>
           
           <div className="flex gap-2">
-            <Button variant="outline" size="sm" className="w-full flex items-center gap-1">
-              <Github size={16} /> Code
-            </Button>
-            <Button variant="default" size="sm" className="w-full flex items-center gap-1 bg-tech-purple hover:bg-tech-purple/90">
-              <ExternalLink size={16} /> Demo
-            </Button>
+            {project.github && (
+              <Button variant="outline" size="sm" className="flex items-center gap-1" onClick={() => window.open(project.github, "_blank")}>
+                <Github size={16} /> Code
+              </Button>
+            )}
+            {project.demo && (
+              <Button variant="default" size="sm" className="flex items-center gap-1 bg-tech-purple hover:bg-tech-purple/90" onClick={() => window.open(project.demo, "_blank")}>
+                <ExternalLink size={16} /> Demo
+              </Button>
+            )}
+            {project.video && (
+              <Button variant="default" size="sm" className="flex items-center gap-1 bg-tech-blue hover:bg-tech-blue/90" onClick={() => window.open(project.video, "_blank")}>
+                <Play size={16} /> Video
+              </Button>
+            )}
+            {!project.github && !project.demo && !project.video && project.private && (
+              <Button variant="outline" size="sm" className="flex items-center gap-1 opacity-50" disabled>
+                <Code size={16} /> Private Project
+              </Button>
+            )}
           </div>
         </div>
       </CardContent>

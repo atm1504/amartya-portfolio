@@ -1,9 +1,54 @@
 
 import { Button } from "@/components/ui/button";
-import { Github, Linkedin, Mail } from "lucide-react";
+import { Github, Linkedin, Mail, Twitter } from "lucide-react";
 import { Card } from "@/components/ui/card";
+import { useEffect, useState } from "react";
 
 const Hero = () => {
+  const [typedText, setTypedText] = useState("");
+  const [currentTextIndex, setCurrentTextIndex] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [showCursor, setShowCursor] = useState(true);
+  
+  const textArray = [
+    "building digital solutions",
+    "creating innovative apps",
+    "engineering web platforms",
+    "experimenting with cloud tech",
+    "developing blockchain systems"
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setShowCursor((prev) => !prev);
+    }, 500);
+    
+    return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    const currentText = textArray[currentTextIndex];
+    const typeSpeed = isDeleting ? 50 : 100;
+    
+    const timeout = setTimeout(() => {
+      if (!isDeleting && typedText === currentText) {
+        // Wait before starting to delete
+        setTimeout(() => setIsDeleting(true), 1500);
+      } else if (isDeleting && typedText === "") {
+        setIsDeleting(false);
+        setCurrentTextIndex((currentTextIndex + 1) % textArray.length);
+      } else {
+        setTypedText(
+          isDeleting 
+            ? currentText.substring(0, typedText.length - 1) 
+            : currentText.substring(0, typedText.length + 1)
+        );
+      }
+    }, typeSpeed);
+    
+    return () => clearTimeout(timeout);
+  }, [typedText, currentTextIndex, isDeleting, textArray]);
+
   return (
     <section
       id="hero"
@@ -28,20 +73,23 @@ const Hero = () => {
           </div>
 
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight">
-            Building digital <br />
-            <span className="text-gradient">solutions with code</span>
+            Passionate about <br />
+            <span className="text-gradient h-[72px] block">
+              {typedText}
+              {showCursor && <span className="animate-blink">|</span>}
+            </span>
           </h1>
           
           <div className="relative pl-4 border-l-2 border-tech-purple">
             <p className="text-lg text-foreground/80">
-              Hello, I'm <span className="font-bold text-foreground">Amartya Mondal</span>,
-              a passionate full stack developer with expertise in web, mobile, and blockchain
-              technologies.
+              Hello, I'm <span className="font-bold text-foreground">Amartya Mondal</span> (atm),
+              an innovative full stack developer with expertise in web, mobile, and blockchain
+              technologies. Always eager to learn, experiment, and build impactful solutions.
             </p>
           </div>
 
           <div className="flex flex-wrap gap-4 pt-4">
-            <Button className="bg-tech-purple hover:bg-tech-purple/90 text-white">
+            <Button onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })} className="bg-tech-purple hover:bg-tech-purple/90 text-white">
               View Projects
             </Button>
             <Button variant="outline" className="border-tech-purple text-tech-purple">
@@ -51,7 +99,7 @@ const Hero = () => {
 
           <div className="flex items-center space-x-4 pt-2">
             <a
-              href="https://github.com"
+              href="https://github.com/atm1504"
               target="_blank"
               rel="noopener noreferrer"
               className="p-2 rounded-full bg-secondary hover:bg-secondary/70 transition-colors"
@@ -59,12 +107,20 @@ const Hero = () => {
               <Github size={20} />
             </a>
             <a
-              href="https://linkedin.com"
+              href="https://linkedin.com/in/atm1504"
               target="_blank"
               rel="noopener noreferrer"
               className="p-2 rounded-full bg-secondary hover:bg-secondary/70 transition-colors"
             >
               <Linkedin size={20} />
+            </a>
+            <a
+              href="https://twitter.com/AmartyaMondal7"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 rounded-full bg-secondary hover:bg-secondary/70 transition-colors"
+            >
+              <Twitter size={20} />
             </a>
             <a
               href="mailto:atm1504.in@gmail.com"
@@ -83,18 +139,33 @@ const Hero = () => {
               <div className="w-3 h-3 rounded-full bg-green-500"></div>
             </div>
             <pre className="font-mono">
-              <span className="text-tech-green">$</span> <span className="text-tech-cyan">cd</span> amartya/portfolio
+              <span className="text-tech-green">$</span> <span className="text-tech-cyan">whoami</span>
               <br />
-              <br />
-              <span className="text-tech-green">$</span> <span className="text-tech-cyan">cat</span> summary.json
+              atm1504
+              <br /><br />
+              <span className="text-tech-green">$</span> <span className="text-tech-cyan">cat</span> atm_profile.json
               <br />
               {`{`}
               <br />
               {"  "}<span className="text-tech-purple">"name"</span>: <span className="text-tech-cyan">"Amartya Mondal"</span>,
               <br />
-              {"  "}<span className="text-tech-purple">"role"</span>: <span className="text-tech-cyan">"Full Stack Developer"</span>,
+              {"  "}<span className="text-tech-purple">"alias"</span>: <span className="text-tech-cyan">"atm1504"</span>,
+              <br />
+              {"  "}<span className="text-tech-purple">"role"</span>: <span className="text-tech-cyan">"Engineering Manager"</span>,
               <br />
               {"  "}<span className="text-tech-purple">"location"</span>: <span className="text-tech-cyan">"Durgapur, India"</span>,
+              <br />
+              {"  "}<span className="text-tech-purple">"traits"</span>: [
+              <br />
+              {"    "}<span className="text-tech-cyan">"Innovative"</span>,
+              <br />
+              {"    "}<span className="text-tech-cyan">"Experimental"</span>,
+              <br />
+              {"    "}<span className="text-tech-cyan">"Curious"</span>,
+              <br />
+              {"    "}<span className="text-tech-cyan">"Problem Solver"</span>
+              <br />
+              {"  "}],
               <br />
               {"  "}<span className="text-tech-purple">"expertise"</span>: [
               <br />
@@ -106,9 +177,7 @@ const Hero = () => {
               <br />
               {"    "}<span className="text-tech-cyan">"Blockchain"</span>
               <br />
-              {"  "}],
-              <br />
-              {"  "}<span className="text-tech-purple">"contact"</span>: <span className="text-tech-cyan">"atm1504.in@gmail.com"</span>
+              {"  "}]
               <br />
               {`}`}
               <br />

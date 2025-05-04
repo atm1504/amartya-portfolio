@@ -1,5 +1,5 @@
 
-import { Github, Linkedin, Mail } from "lucide-react";
+import { Github, Linkedin, Mail, Twitter } from "lucide-react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -10,7 +10,7 @@ const Footer = () => {
         <div className="grid md:grid-cols-3 gap-8">
           <div>
             <h3 className="text-xl font-bold mb-4 flex items-center">
-              Amartya<span className="text-tech-purple">.dev</span>
+              <span className="text-tech-purple">atm</span>1504<span className="text-tech-purple">.dev</span>
             </h3>
             <p className="text-white/70 mb-4 max-w-md">
               Full stack developer with expertise in web, mobile, cloud, and blockchain
@@ -18,7 +18,7 @@ const Footer = () => {
             </p>
             <div className="flex space-x-4">
               <a
-                href="https://github.com"
+                href="https://github.com/atm1504"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 bg-white/10 rounded-full hover:bg-white/20 transition-colors"
@@ -26,12 +26,20 @@ const Footer = () => {
                 <Github size={18} />
               </a>
               <a
-                href="https://linkedin.com"
+                href="https://linkedin.com/in/atm1504"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 bg-white/10 rounded-full hover:bg-white/20 transition-colors"
               >
                 <Linkedin size={18} />
+              </a>
+              <a
+                href="https://twitter.com/AmartyaMondal7"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 bg-white/10 rounded-full hover:bg-white/20 transition-colors"
+              >
+                <Twitter size={18} />
               </a>
               <a
                 href="mailto:atm1504.in@gmail.com"
@@ -66,6 +74,11 @@ const Footer = () => {
                 </a>
               </li>
               <li>
+                <a href="#github-stats" className="text-white/70 hover:text-white transition-colors">
+                  GitHub Stats
+                </a>
+              </li>
+              <li>
                 <a href="#education" className="text-white/70 hover:text-white transition-colors">
                   Education
                 </a>
@@ -83,7 +96,11 @@ const Footer = () => {
             <ul className="space-y-2">
               <li className="flex items-start space-x-2">
                 <Mail size={18} className="mt-1 text-tech-purple" />
-                <span className="text-white/70">atm1504.in@gmail.com</span>
+                <span className="text-white/70">Personal: atm1504.in@gmail.com</span>
+              </li>
+              <li className="flex items-start space-x-2">
+                <Mail size={18} className="mt-1 text-tech-purple" />
+                <span className="text-white/70">Work: amartya@work.com</span>
               </li>
               <li className="flex items-start space-x-2">
                 <div className="flex-shrink-0 w-[18px] h-[18px] mt-1 flex items-center justify-center">
@@ -103,14 +120,14 @@ const Footer = () => {
                     <circle cx="12" cy="10" r="3" />
                   </svg>
                 </div>
-                <span className="text-white/70">Durgapur-12, India</span>
+                <span className="text-white/70">Durgapur, India</span>
               </li>
             </ul>
           </div>
         </div>
         
         <div className="mt-12 pt-6 border-t border-white/10 text-center text-white/50 text-sm">
-          <p>© {currentYear} Amartya Mondal. All Rights Reserved.</p>
+          <p>© {currentYear} Amartya Mondal (atm1504). All Rights Reserved.</p>
         </div>
       </div>
     </footer>

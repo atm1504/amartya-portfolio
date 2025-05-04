@@ -30,11 +30,11 @@ export default {
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
 				tech: {
-					blue: '#0077B6',
-					purple: '#8B5CF6',
-					cyan: '#06B6D4',
-					green: '#10B981',
-					dark: '#121212',
+					blue: 'hsl(var(--tech-blue))',
+					purple: 'hsl(var(--tech-purple))',
+					cyan: 'hsl(var(--tech-cyan))',
+					green: 'hsl(var(--tech-green))',
+					dark: 'hsl(var(--tech-dark))',
 				},
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
@@ -137,6 +137,14 @@ export default {
 					'100%': {
 						transform: 'rotate(360deg)'
 					}
+				},
+				'number-count': {
+					'0%': {
+						'counter-increment': 'count 0'
+					},
+					'100%': {
+						'counter-increment': 'count var(--value)'
+					}
 				}
 			},
 			animation: {
@@ -147,7 +155,8 @@ export default {
 				'blink': 'blink 1.5s infinite',
 				'pulse': 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
 				'float': 'float 3s ease-in-out infinite',
-				'rotate-slow': 'rotate-slow 10s linear infinite'
+				'rotate-slow': 'rotate-slow 10s linear infinite',
+				'number-count': 'number-count 2s forwards'
 			}
 		}
 	},

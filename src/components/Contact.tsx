@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent } from "@/components/ui/card";
-import { Mail, Phone, User } from "lucide-react";
+import { Github, Linkedin, Mail, Twitter, User } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 const Contact = () => {
@@ -34,7 +34,7 @@ const Contact = () => {
       setIsSubmitting(false);
       toast({
         title: "Message sent!",
-        description: "I'll get back to you as soon as possible.",
+        description: "atm will get back to you as soon as possible.",
       });
       setFormData({
         name: "",
@@ -50,19 +50,43 @@ const Contact = () => {
       icon: <Mail className="text-tech-purple" size={24} />,
       title: "Email",
       value: "atm1504.in@gmail.com",
-      link: "mailto:atm1504.in@gmail.com"
+      link: "mailto:atm1504.in@gmail.com",
+      description: "Personal Email"
     },
     {
-      icon: <Phone className="text-tech-purple" size={24} />,
-      title: "Phone",
-      value: "Available on request",
-      link: "#"
+      icon: <Mail className="text-tech-purple" size={24} />,
+      title: "Work Email",
+      value: "amartya@work.com",
+      link: "mailto:amartya@work.com",
+      description: "Professional Inquiries"
     },
     {
       icon: <User className="text-tech-purple" size={24} />,
       title: "Location",
       value: "Durgapur, India",
-      link: "#"
+      link: "#",
+      description: "Currently Based In"
+    }
+  ];
+
+  const socialLinks = [
+    {
+      icon: <Github size={24} />,
+      title: "GitHub",
+      url: "https://github.com/atm1504",
+      username: "atm1504"
+    },
+    {
+      icon: <Linkedin size={24} />,
+      title: "LinkedIn",
+      url: "https://linkedin.com/in/atm1504",
+      username: "atm1504"
+    },
+    {
+      icon: <Twitter size={24} />,
+      title: "Twitter",
+      url: "https://twitter.com/AmartyaMondal7",
+      username: "AmartyaMondal7"
     }
   ];
 
@@ -91,14 +115,15 @@ const Contact = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8 mb-16">
+        <div className="grid md:grid-cols-3 gap-8 mb-16">
           {contactInfo.map((item, index) => (
             <Card key={index} className="card-hover border border-muted bg-card/50">
               <CardContent className="flex flex-col items-center text-center p-6">
                 <div className="p-4 bg-secondary rounded-full mb-4">
                   {item.icon}
                 </div>
-                <h3 className="text-xl font-bold mb-2">{item.title}</h3>
+                <h3 className="text-xl font-bold mb-1">{item.title}</h3>
+                <p className="text-sm text-foreground/70 mb-2">{item.description}</p>
                 <a 
                   href={item.link} 
                   className="text-tech-purple hover:underline"
@@ -108,6 +133,27 @@ const Contact = () => {
               </CardContent>
             </Card>
           ))}
+        </div>
+
+        <div className="mb-16">
+          <h3 className="text-xl font-bold mb-6 text-center">Connect on Social Media</h3>
+          <div className="flex justify-center space-x-6">
+            {socialLinks.map((link, index) => (
+              <a 
+                key={index}
+                href={link.url} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex flex-col items-center p-4 hover:bg-secondary rounded-lg transition-colors"
+              >
+                <div className="p-3 bg-secondary rounded-full mb-2">
+                  {link.icon}
+                </div>
+                <span className="text-sm font-medium">{link.title}</span>
+                <span className="text-xs text-foreground/70">@{link.username}</span>
+              </a>
+            ))}
+          </div>
         </div>
 
         <Card className="overflow-hidden border border-muted">
@@ -132,11 +178,11 @@ const Contact = () => {
                   
                   <div className="flex items-center space-x-3">
                     <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center">
-                      <Phone size={20} className="text-white" />
+                      <Github size={20} className="text-white" />
                     </div>
                     <div>
-                      <div className="text-sm text-white/70">Call me at</div>
-                      <div className="font-medium">Available on request</div>
+                      <div className="text-sm text-white/70">Find me on GitHub</div>
+                      <div className="font-medium">@atm1504</div>
                     </div>
                   </div>
                 </div>
