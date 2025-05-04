@@ -82,9 +82,9 @@ const Navbar = () => {
           <Button
             variant="outline"
             className="px-6"
-            onClick={() => window.open("/resume.pdf", "_blank")}
+            onClick={() => window.open("/atm1504_resume.pdf", "_blank")}
           >
-            Resume
+            Download CV
           </Button>
 
           <Button
@@ -138,11 +138,11 @@ const Navbar = () => {
                 variant="ghost"
                 className="w-full justify-start"
                 onClick={() => {
-                  window.open("/resume.pdf", "_blank");
+                  window.open("/atm1504_resume.pdf", "_blank");
                   toggleMenu();
                 }}
               >
-                Resume
+                Download CV
               </Button>
               <Button
                 className="w-full bg-tech-purple hover:bg-tech-purple/90 text-white"

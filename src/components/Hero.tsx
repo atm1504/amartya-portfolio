@@ -9,14 +9,6 @@ const Hero = () => {
   const [isDeleting, setIsDeleting] = useState(false);
   const [showCursor, setShowCursor] = useState(true);
 
-  const textArray = [
-    "building digital solutions",
-    "creating innovative apps",
-    "engineering web platforms",
-    "experimenting with cloud tech",
-    "developing blockchain systems",
-  ];
-
   useEffect(() => {
     const interval = setInterval(() => {
       setShowCursor((prev) => !prev);
@@ -26,6 +18,14 @@ const Hero = () => {
   }, []);
 
   useEffect(() => {
+    const textArray = [
+      "building digital solutions",
+      "creating innovative apps",
+      "engineering web platforms",
+      "experimenting with cloud tech",
+      "developing blockchain systems",
+    ];
+
     const currentText = textArray[currentTextIndex];
     const typeSpeed = isDeleting ? 50 : 100;
 
@@ -46,7 +46,7 @@ const Hero = () => {
     }, typeSpeed);
 
     return () => clearTimeout(timeout);
-  }, [typedText, currentTextIndex, isDeleting, textArray]);
+  }, [typedText, currentTextIndex, isDeleting]);
 
   return (
     <section
@@ -100,12 +100,18 @@ const Hero = () => {
             >
               View Projects
             </Button>
-            <Button
-              variant="outline"
-              className="border-tech-purple text-tech-purple"
+            <a
+              href="/atm1504_resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              Download CV
-            </Button>
+              <Button
+                variant="outline"
+                className="border-tech-purple text-tech-purple"
+              >
+                Download CV
+              </Button>
+            </a>
           </div>
 
           <div className="flex items-center space-x-4 pt-2">
@@ -134,8 +140,16 @@ const Hero = () => {
               <Twitter size={20} />
             </a>
             <a
+              href="mailto:amartya.mondal@c1exchange.com"
+              className="p-2 rounded-full bg-secondary hover:bg-secondary/70 transition-colors"
+              title="Work Email"
+            >
+              <Mail size={20} />
+            </a>
+            <a
               href="mailto:atm1504.in@gmail.com"
               className="p-2 rounded-full bg-secondary hover:bg-secondary/70 transition-colors"
+              title="Personal Email"
             >
               <Mail size={20} />
             </a>
@@ -175,7 +189,10 @@ const Hero = () => {
               <br />
               {"  "}
               <span className="text-tech-purple">"location"</span>:{" "}
-              <span className="text-tech-cyan">"Durgapur/Chennai/Global"</span>,
+              <span className="text-tech-cyan">
+                "Where code meets creativity"
+              </span>
+              ,
               <br />
               {"  "}
               <span className="text-tech-purple">"traits"</span>: [
