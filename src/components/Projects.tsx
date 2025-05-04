@@ -3,12 +3,30 @@ import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Code, ExternalLink, Github, Play } from "lucide-react";
+import { Code, ExternalLink, Github, Play, MessageSquareCode, Layers } from "lucide-react";
 
 const Projects = () => {
   const [filter, setFilter] = useState("all");
 
   const projects = [
+    {
+      title: "Claude MCP Integration",
+      description: "Developed a system integrating Claude's Model Context Protocol (MCP) to enhance content generation capabilities for ad rendering with personalized content delivery.",
+      technologies: ["Python", "Claude API", "MCP", "RAG", "FastAPI", "TypeScript"],
+      category: ["ai", "llm", "professional", "web"],
+      image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=600&auto=format&fit=crop",
+      featured: true,
+      private: true
+    },
+    {
+      title: "Social Media Ad Analytics",
+      description: "Created a server to fetch and analyze ad information from Facebook and Instagram, with an LLM-powered query interface for advanced ad performance insights.",
+      technologies: ["Node.js", "LangChain", "Meta API", "Python", "MongoDB", "Vector DB"],
+      category: ["ai", "llm", "data", "professional"],
+      image: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?q=80&w=600&auto=format&fit=crop",
+      featured: true,
+      private: true
+    },
     {
       title: "DOOH (Digital Out Of Home)",
       description: "Led cross-device ad rendering targeting offline customers through digital hoardings. Spearheading implementation using NestJS, Android box, and RPI.",
@@ -76,28 +94,12 @@ const Projects = () => {
       image: "https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
       featured: true,
       github: "https://github.com/atm1504/digital-identity"
-    },
-    {
-      title: "Shabd App",
-      description: "An educational app for autism patients built as a team project. Designed to assist with communication and learning challenges.",
-      technologies: ["Android", "Java", "Firebase"],
-      category: ["mobile", "education"],
-      image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
-      github: "https://github.com/atm1504/shabd-app"
-    },
-    {
-      title: "SUSI.AI Android Client",
-      description: "GSoC'19 project focusing on integrating SUSI smart speaker with the Android app. Contributed to FOSSASIA organization.",
-      technologies: ["Android", "Java", "AI", "API Integration"],
-      category: ["mobile", "open-source"],
-      image: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
-      github: "https://github.com/fossasia/susi_android",
-      demo: "https://play.google.com/store/apps/details?id=ai.susi"
     }
   ];
 
   const categories = [
     { id: "all", label: "All Projects" },
+    { id: "ai", label: "AI & LLM" },
     { id: "web", label: "Web" },
     { id: "mobile", label: "Mobile" },
     { id: "blockchain", label: "Blockchain" },
@@ -106,7 +108,7 @@ const Projects = () => {
     { id: "cloud", label: "Cloud" },
     { id: "professional", label: "Professional" },
     { id: "personal", label: "Personal" },
-    { id: "open-source", label: "Open Source" }
+    { id: "llm", label: "LLM" }
   ];
 
   const filteredProjects = filter === "all" 
@@ -128,7 +130,7 @@ const Projects = () => {
             Featured <span className="text-tech-purple">Work</span>
           </h2>
           <p className="text-foreground/70 max-w-2xl">
-            A showcase of my innovative projects spanning web, mobile, blockchain, and automation technologies.
+            A showcase of my innovative projects spanning web, mobile, AI, blockchain, and automation technologies.
             Each project represents unique challenges and creative solutions I've developed.
           </p>
 
@@ -205,10 +207,18 @@ const ProjectCard = ({ project }: { project: Project }) => {
               Private
             </Badge>
           )}
+          {project.category.includes('llm') && (
+            <Badge className="bg-tech-cyan">
+              <Layers className="mr-1 h-3 w-3" /> LLM
+            </Badge>
+          )}
         </div>
       </div>
       <CardContent className="p-6 flex-grow flex flex-col">
-        <h3 className="text-xl font-bold mb-2">{project.title}</h3>
+        <div className="flex items-center gap-2 mb-2">
+          {project.category.includes('ai') && <MessageSquareCode size={16} className="text-tech-purple" />}
+          <h3 className="text-xl font-bold">{project.title}</h3>
+        </div>
         <p className="text-foreground/70 mb-4 text-sm flex-grow">{project.description}</p>
         
         <div className="space-y-4">

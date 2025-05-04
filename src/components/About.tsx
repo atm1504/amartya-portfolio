@@ -23,9 +23,8 @@ const About = () => {
             Building <span className="text-tech-purple">Digital Experiences</span>
           </h2>
           <p className="text-foreground/70 max-w-2xl">
-            Hello, I am Amartya Mondal (atm), a full stack developer and engineering manager with rich experience in
-            building innovative websites, mobile applications, and cloud solutions. I'm passionate about
-            experimenting with new technologies and creating impactful products.
+            Hello, I am Amartya Mondal (atm), a full stack developer and engineering manager passionate about
+            building innovative websites, mobile applications, and cloud solutions with emerging technologies.
           </p>
         </div>
 
@@ -38,9 +37,9 @@ const About = () => {
               Oracle, and Deloitte, developing innovative solutions and leading technical teams.
             </p>
             <p className="text-foreground/70">
-              Whether it's developing mobile apps, crafting efficient APIs, or implementing blockchain
-              solutions, I approach each project with enthusiasm and a commitment to excellence. I
-              believe in continuous learning and staying updated with the latest technologies.
+              I thrive on experimenting with new technologies and creating impactful products. Whether it's 
+              developing mobile apps, crafting efficient APIs, implementing blockchain solutions, or integrating 
+              AI technologies, I approach each project with enthusiasm and a commitment to excellence.
             </p>
             <div className="p-4 bg-tech-purple/10 rounded-lg border border-tech-purple/20 mt-4">
               <h4 className="font-bold mb-2 flex items-center gap-2">
@@ -83,8 +82,8 @@ const About = () => {
             />
             <ExperienceCard
               icon={<Globe className="text-tech-purple" size={24} />}
-              title="Business Mindset"
-              description="Understanding the business impact of technical solutions"
+              title="Innovation Mindset"
+              description="Finding creative solutions to complex problems"
             />
           </div>
         </div>

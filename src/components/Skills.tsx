@@ -1,5 +1,6 @@
 
 import { Card, CardContent } from "@/components/ui/card";
+import { Layers, MessageSquareCode } from "lucide-react";
 
 const Skills = () => {
   const skillCategories = [
@@ -47,6 +48,18 @@ const Skills = () => {
       ]
     },
     {
+      title: "AI & LLM",
+      skills: [
+        "Claude",
+        "GPT-4",
+        "LangChain",
+        "MCP",
+        "RAG",
+        "Embeddings",
+        "Vector DBs"
+      ]
+    },
+    {
       title: "Other Languages",
       skills: [
         "Python",
@@ -84,7 +97,7 @@ const Skills = () => {
           </h2>
           <p className="text-foreground/70 max-w-2xl">
             I've worked with a diverse range of technologies across the full stack development
-            spectrum. Here are the key skills I bring to the table.
+            spectrum. I'm always experimenting with new tools and technologies to stay ahead of the curve.
           </p>
         </div>
 
@@ -94,12 +107,19 @@ const Skills = () => {
               <CardContent className="p-0">
                 <div className="h-2 bg-gradient-to-r from-tech-purple to-tech-blue"></div>
                 <div className="p-6">
-                  <h3 className="text-xl font-bold mb-4">{category.title}</h3>
+                  <div className="flex items-center gap-2 mb-4">
+                    {category.title === "AI & LLM" && <Layers size={18} className="text-tech-purple" />}
+                    <h3 className="text-xl font-bold">{category.title}</h3>
+                  </div>
                   <div className="flex flex-wrap gap-2">
                     {category.skills.map((skill, skillIndex) => (
                       <span 
                         key={skillIndex}
-                        className="px-3 py-1 bg-secondary text-foreground/80 rounded-full text-sm"
+                        className={`px-3 py-1 rounded-full text-sm ${
+                          category.title === "AI & LLM" 
+                            ? "bg-tech-purple/10 text-tech-purple border border-tech-purple/20" 
+                            : "bg-secondary text-foreground/80"
+                        }`}
                       >
                         {skill}
                       </span>
@@ -118,11 +138,13 @@ const Skills = () => {
               <SkillBar skill="Web Development" percentage={95} />
               <SkillBar skill="Mobile App Development" percentage={90} />
               <SkillBar skill="API Development" percentage={95} />
+              <SkillBar skill="AI & LLM Integration" percentage={85} />
             </div>
             <div className="space-y-6">
               <SkillBar skill="AWS Cloud Services" percentage={85} />
               <SkillBar skill="Database Design" percentage={90} />
               <SkillBar skill="Blockchain Development" percentage={80} />
+              <SkillBar skill="Model Context Protocol (MCP)" percentage={88} />
             </div>
           </div>
         </div>

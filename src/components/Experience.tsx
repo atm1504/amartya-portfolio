@@ -10,13 +10,22 @@ import {
 import { useState } from "react";
 
 const Experience = () => {
-  const [openCompany, setOpenCompany] = useState<string | null>("C1X Adtech Inc.");
+  // Default all companies to be open
+  const [openCompany, setOpenCompany] = useState<string[]>([
+    "C1X Adtech Inc.", 
+    "Scaler Academy", 
+    "Developers Student Clubs - IIT Patna", 
+    "Oracle", 
+    "Deloitte Canada", 
+    "Success Numbers LLC", 
+    "FOSSASIA"
+  ]);
   
   const toggleCompany = (company: string) => {
-    if (openCompany === company) {
-      setOpenCompany(null);
+    if (openCompany.includes(company)) {
+      setOpenCompany(openCompany.filter(c => c !== company));
     } else {
-      setOpenCompany(company);
+      setOpenCompany([...openCompany, company]);
     }
   };
 
@@ -153,7 +162,6 @@ const Experience = () => {
           <p className="text-foreground/70 max-w-2xl">
             My career path includes working with various organizations
             where I've built and deployed innovative solutions across different technology stacks.
-            I thrive on learning new technologies and experimenting with them to build impactful products.
           </p>
         </div>
 
@@ -180,7 +188,7 @@ const Experience = () => {
                     </div>
                   </div>
                   <div className="text-foreground/70">
-                    {openCompany === company.company ? (
+                    {openCompany.includes(company.company) ? (
                       <ChevronDownIcon size={20} />
                     ) : (
                       <ChevronRightIcon size={20} />
@@ -188,7 +196,7 @@ const Experience = () => {
                   </div>
                 </div>
                 
-                {openCompany === company.company && (
+                {openCompany.includes(company.company) && (
                   <div className="bg-gradient-to-b from-secondary/30 to-background">
                     <div className="p-6">
                       <p className="text-foreground/80 mb-6">{company.description}</p>

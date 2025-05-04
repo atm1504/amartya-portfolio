@@ -1,19 +1,101 @@
 
 import { Card, CardContent } from "@/components/ui/card";
-import { Book, Globe, HeadphonesIcon, Code, Users, Heart } from "lucide-react";
+import { Book, Globe, HeadphonesIcon, Code, Users, Heart, Scroll, BookText, MessageSquareCode } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { useState } from "react";
 
 const Hobbies = () => {
-  const books = [
-    { title: "Atomic Habits", author: "James Clear", category: "Self Help" },
-    { title: "Deep Work", author: "Cal Newport", category: "Productivity" },
-    { title: "Zero to One", author: "Peter Thiel", category: "Business" },
-    { title: "The Lean Startup", author: "Eric Ries", category: "Business" },
-    { title: "Sapiens", author: "Yuval Noah Harari", category: "History" },
-    { title: "Think and Grow Rich", author: "Napoleon Hill", category: "Self Help" },
-    { title: "The Psychology of Money", author: "Morgan Housel", category: "Finance" },
-    { title: "Ikigai", author: "Héctor García", category: "Philosophy" },
+  const [activeCategory, setActiveCategory] = useState<string>("all");
+  
+  const bookCategories = [
+    { id: "all", name: "All" },
+    { id: "self-help", name: "Self Help" },
+    { id: "productivity", name: "Productivity" },
+    { id: "business", name: "Business" },
+    { id: "finance", name: "Finance" },
+    { id: "history", name: "History" },
+    { id: "philosophy", name: "Philosophy" }
   ];
+  
+  const books = [
+    { 
+      title: "Atomic Habits", 
+      author: "James Clear", 
+      category: "Self Help",
+      cover: "https://m.media-amazon.com/images/I/81wgcld4wxL._AC_UF1000,1000_QL80_.jpg" 
+    },
+    { 
+      title: "Deep Work", 
+      author: "Cal Newport", 
+      category: "Productivity",
+      cover: "https://m.media-amazon.com/images/I/71QKQ9mwV7L._AC_UF1000,1000_QL80_.jpg" 
+    },
+    { 
+      title: "Zero to One", 
+      author: "Peter Thiel", 
+      category: "Business",
+      cover: "https://m.media-amazon.com/images/I/71Xygne8+qL._AC_UF1000,1000_QL80_.jpg" 
+    },
+    { 
+      title: "The Lean Startup", 
+      author: "Eric Ries", 
+      category: "Business",
+      cover: "https://m.media-amazon.com/images/I/81-QB7nDh4L._AC_UF1000,1000_QL80_.jpg" 
+    },
+    { 
+      title: "Sapiens", 
+      author: "Yuval Noah Harari", 
+      category: "History",
+      cover: "https://m.media-amazon.com/images/I/713jIoMO3UL._AC_UF1000,1000_QL80_.jpg" 
+    },
+    { 
+      title: "Think and Grow Rich", 
+      author: "Napoleon Hill", 
+      category: "Self Help",
+      cover: "https://m.media-amazon.com/images/I/71UypkUjStL._AC_UF1000,1000_QL80_.jpg" 
+    },
+    { 
+      title: "The Psychology of Money", 
+      author: "Morgan Housel", 
+      category: "Finance",
+      cover: "https://m.media-amazon.com/images/I/81Lb75rUhLL._AC_UF1000,1000_QL80_.jpg" 
+    },
+    { 
+      title: "Ikigai", 
+      author: "Héctor García", 
+      category: "Philosophy",
+      cover: "https://m.media-amazon.com/images/I/71tbalAHYCL._AC_UF1000,1000_QL80_.jpg" 
+    },
+    { 
+      title: "Rich Dad Poor Dad", 
+      author: "Robert Kiyosaki", 
+      category: "Finance",
+      cover: "https://m.media-amazon.com/images/I/81bsw6fnUiL._AC_UF1000,1000_QL80_.jpg" 
+    },
+    { 
+      title: "The 4-Hour Work Week", 
+      author: "Timothy Ferriss", 
+      category: "Productivity",
+      cover: "https://m.media-amazon.com/images/I/81qW97ndkvL._AC_UF1000,1000_QL80_.jpg" 
+    },
+    { 
+      title: "The Subtle Art of Not Giving a F*ck", 
+      author: "Mark Manson", 
+      category: "Self Help",
+      cover: "https://m.media-amazon.com/images/I/71QKQ9mwV7L._AC_UF1000,1000_QL80_.jpg" 
+    },
+    { 
+      title: "How to Win Friends and Influence People", 
+      author: "Dale Carnegie", 
+      category: "Self Help",
+      cover: "https://m.media-amazon.com/images/I/71uLHJrAgbL._AC_UF1000,1000_QL80_.jpg" 
+    },
+  ];
+
+  const filteredBooks = activeCategory === "all" 
+    ? books 
+    : books.filter(book => book.category.toLowerCase() === activeCategory);
 
   const interests = [
     { 
@@ -32,9 +114,9 @@ const Hobbies = () => {
       description: "Exploring new places and experiencing different cultures."
     },
     { 
-      icon: <HeadphonesIcon className="text-tech-cyan" size={24} />, 
-      title: "Music",
-      description: "Listening to various genres of music to relax and find inspiration."
+      icon: <MessageSquareCode className="text-tech-cyan" size={24} />, 
+      title: "Innovation",
+      description: "Exploring new AI and tech trends, finding creative solutions to problems."
     },
     { 
       icon: <Users className="text-tech-purple" size={24} />, 
@@ -88,23 +170,49 @@ const Hobbies = () => {
 
           <Card className="card-hover overflow-hidden border border-muted bg-background">
             <CardContent className="p-6">
-              <h3 className="text-xl font-bold mb-6 flex items-center gap-2">
+              <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
                 <Book className="text-tech-purple" size={20} />
                 <span>Books I've Read</span>
               </h3>
-              <div className="grid grid-cols-1 gap-3">
-                {books.map((book, index) => (
-                  <div key={index} className="flex justify-between items-center p-3 bg-secondary/50 rounded-lg">
-                    <div>
-                      <h4 className="font-medium">{book.title}</h4>
-                      <p className="text-sm text-foreground/70">by {book.author}</p>
-                    </div>
-                    <Badge className="bg-tech-purple/10 text-tech-purple border border-tech-purple/20">
-                      {book.category}
-                    </Badge>
-                  </div>
+              
+              <div className="flex flex-wrap gap-2 mb-4">
+                {bookCategories.map(category => (
+                  <Badge 
+                    key={category.id}
+                    className={`cursor-pointer ${
+                      activeCategory === category.id 
+                        ? "bg-tech-purple text-white" 
+                        : "bg-secondary text-foreground/70 hover:bg-tech-purple/20"
+                    }`}
+                    onClick={() => setActiveCategory(category.id)}
+                  >
+                    {category.name}
+                  </Badge>
                 ))}
               </div>
+              
+              <ScrollArea className="h-[320px] pr-4">
+                <div className="grid grid-cols-2 gap-3">
+                  {filteredBooks.map((book, index) => (
+                    <div key={index} className="flex flex-col bg-secondary/50 rounded-lg overflow-hidden">
+                      <div className="h-32 overflow-hidden">
+                        <img 
+                          src={book.cover} 
+                          alt={`${book.title} cover`} 
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      <div className="p-3">
+                        <h4 className="font-medium text-sm line-clamp-1">{book.title}</h4>
+                        <p className="text-xs text-foreground/70">by {book.author}</p>
+                        <Badge className="mt-2 bg-tech-purple/10 text-tech-purple border border-tech-purple/20 text-xs">
+                          {book.category}
+                        </Badge>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </ScrollArea>
             </CardContent>
           </Card>
         </div>
