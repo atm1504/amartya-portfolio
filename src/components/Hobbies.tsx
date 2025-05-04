@@ -4,6 +4,13 @@ import { Book, Globe, HeadphonesIcon, Code, Users, Heart, Scroll, BookText, Mess
 import { Badge } from "@/components/ui/badge";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { useState } from "react";
+import { 
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 const Hobbies = () => {
   const [activeCategory, setActiveCategory] = useState<string>("all");
@@ -93,9 +100,21 @@ const Hobbies = () => {
     },
   ];
 
+  // Get unique categories from books
+  const uniqueCategories = [...new Set(books.map(book => book.category))];
+  
+  // Filter books by selected category
   const filteredBooks = activeCategory === "all" 
     ? books 
     : books.filter(book => book.category.toLowerCase() === activeCategory);
+  
+  // Group filtered books by category
+  const booksByCategory = activeCategory === "all" 
+    ? uniqueCategories.reduce((acc, category) => {
+        acc[category] = books.filter(book => book.category === category);
+        return acc;
+      }, {} as Record<string, typeof books>)
+    : { [activeCategory.charAt(0).toUpperCase() + activeCategory.slice(1)]: filteredBooks };
 
   const interests = [
     { 
@@ -175,7 +194,7 @@ const Hobbies = () => {
                 <span>Books I've Read</span>
               </h3>
               
-              <div className="flex flex-wrap gap-2 mb-4">
+              <div className="flex flex-wrap gap-2 mb-6">
                 {bookCategories.map(category => (
                   <Badge 
                     key={category.id}
@@ -191,23 +210,35 @@ const Hobbies = () => {
                 ))}
               </div>
               
-              <ScrollArea className="h-[320px] pr-4">
-                <div className="grid grid-cols-2 gap-3">
-                  {filteredBooks.map((book, index) => (
-                    <div key={index} className="flex flex-col bg-secondary/50 rounded-lg overflow-hidden">
-                      <div className="h-32 overflow-hidden">
-                        <img 
-                          src={book.cover} 
-                          alt={`${book.title} cover`} 
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
-                      <div className="p-3">
-                        <h4 className="font-medium text-sm line-clamp-1">{book.title}</h4>
-                        <p className="text-xs text-foreground/70">by {book.author}</p>
-                        <Badge className="mt-2 bg-tech-purple/10 text-tech-purple border border-tech-purple/20 text-xs">
-                          {book.category}
-                        </Badge>
+              <ScrollArea className="h-[320px]">
+                <div className="space-y-6">
+                  {Object.entries(booksByCategory).map(([category, categoryBooks]) => (
+                    <div key={category} className="mb-4">
+                      <h4 className="text-lg font-medium mb-3 text-tech-purple">{category}</h4>
+                      <div className="relative">
+                        <Carousel className="w-full">
+                          <CarouselContent>
+                            {categoryBooks.map((book, index) => (
+                              <CarouselItem key={index} className="basis-1/3 md:basis-1/4 lg:basis-1/5">
+                                <div className="flex flex-col bg-secondary/50 rounded-lg overflow-hidden h-full">
+                                  <div className="h-32 overflow-hidden">
+                                    <img 
+                                      src={book.cover} 
+                                      alt={`${book.title} cover`} 
+                                      className="w-full h-full object-cover"
+                                    />
+                                  </div>
+                                  <div className="p-3 flex-1">
+                                    <h4 className="font-medium text-sm line-clamp-1">{book.title}</h4>
+                                    <p className="text-xs text-foreground/70">by {book.author}</p>
+                                  </div>
+                                </div>
+                              </CarouselItem>
+                            ))}
+                          </CarouselContent>
+                          <CarouselPrevious className="left-0" />
+                          <CarouselNext className="right-0" />
+                        </Carousel>
                       </div>
                     </div>
                   ))}
