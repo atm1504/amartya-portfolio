@@ -7,6 +7,7 @@ import Experience from "@/components/Experience";
 import Projects from "@/components/Projects";
 import Education from "@/components/Education";
 import GithubStats from "@/components/GithubStats";
+import Hobbies from "@/components/Hobbies";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import { ThemeProvider } from "@/hooks/use-theme";
@@ -22,6 +23,7 @@ const Index = () => {
         <Experience />
         <Projects />
         <GithubStats />
+        <Hobbies />
         <Education />
         <Contact />
         <Footer />

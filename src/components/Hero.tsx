@@ -74,7 +74,7 @@ const Hero = () => {
 
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight">
             Passionate about <br />
-            <span className="text-gradient h-[72px] block">
+            <span className="text-gradient min-h-[96px] lg:min-h-[72px] block">
               {typedText}
               {showCursor && <span className="animate-blink">|</span>}
             </span>
@@ -153,7 +153,7 @@ const Hero = () => {
               <br />
               {"  "}<span className="text-tech-purple">"role"</span>: <span className="text-tech-cyan">"Engineering Manager"</span>,
               <br />
-              {"  "}<span className="text-tech-purple">"location"</span>: <span className="text-tech-cyan">"Durgapur, India"</span>,
+              {"  "}<span className="text-tech-purple">"location"</span>: <span className="text-tech-cyan">"Durgapur/Chennai/Global"</span>,
               <br />
               {"  "}<span className="text-tech-purple">"traits"</span>: [
               <br />
@@ -163,7 +163,11 @@ const Hero = () => {
               <br />
               {"    "}<span className="text-tech-cyan">"Curious"</span>,
               <br />
-              {"    "}<span className="text-tech-cyan">"Problem Solver"</span>
+              {"    "}<span className="text-tech-cyan">"Problem Solver"</span>,
+              <br />
+              {"    "}<span className="text-tech-cyan">"Leader"</span>,
+              <br />
+              {"    "}<span className="text-tech-cyan">"Life-long Learner"</span>
               <br />
               {"  "}],
               <br />
@@ -175,7 +179,11 @@ const Hero = () => {
               <br />
               {"    "}<span className="text-tech-cyan">"Cloud Services"</span>,
               <br />
-              {"    "}<span className="text-tech-cyan">"Blockchain"</span>
+              {"    "}<span className="text-tech-cyan">"Blockchain"</span>,
+              <br />
+              {"    "}<span className="text-tech-cyan">"Team Leadership"</span>,
+              <br />
+              {"    "}<span className="text-tech-cyan">"System Design"</span>
               <br />
               {"  "}]
               <br />

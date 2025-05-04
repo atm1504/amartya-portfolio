@@ -1,6 +1,6 @@
 
 import { Card, CardContent } from "@/components/ui/card";
-import { Briefcase, Code, Computer, Users } from "lucide-react";
+import { Briefcase, Code, Computer, Users, Globe, Book } from "lucide-react";
 
 const About = () => {
   return (
@@ -23,9 +23,9 @@ const About = () => {
             Building <span className="text-tech-purple">Digital Experiences</span>
           </h2>
           <p className="text-foreground/70 max-w-2xl">
-            Hello, I am Amartya Mondal, a full stack web and app developer with rich experience in
-            building websites, mobile applications and their backends. I'm passionate about
-            leveraging technology to create impactful solutions.
+            Hello, I am Amartya Mondal (atm), a full stack developer and engineering manager with rich experience in
+            building innovative websites, mobile applications, and cloud solutions. I'm passionate about
+            experimenting with new technologies and creating impactful products.
           </p>
         </div>
 
@@ -42,6 +42,17 @@ const About = () => {
               solutions, I approach each project with enthusiasm and a commitment to excellence. I
               believe in continuous learning and staying updated with the latest technologies.
             </p>
+            <div className="p-4 bg-tech-purple/10 rounded-lg border border-tech-purple/20 mt-4">
+              <h4 className="font-bold mb-2 flex items-center gap-2">
+                <Globe size={18} className="text-tech-purple" />
+                Global Presence
+              </h4>
+              <p className="text-sm text-foreground/80">
+                My work takes me across different locations - from my home in Durgapur to our office in Chennai, 
+                and occasionally on international trips for client meetings and collaborative projects. 
+                This mobility has enriched my perspective and approach to problem-solving.
+              </p>
+            </div>
           </div>
           
           <div className="grid grid-cols-2 gap-4">
@@ -64,6 +75,16 @@ const About = () => {
               icon={<Users className="text-tech-purple" size={24} />}
               title="Team Leader"
               description="Leading technical teams across various projects"
+            />
+            <ExperienceCard
+              icon={<Book className="text-tech-purple" size={24} />}
+              title="Continuous Learner"
+              description="Always exploring new technologies and concepts"
+            />
+            <ExperienceCard
+              icon={<Globe className="text-tech-purple" size={24} />}
+              title="Business Mindset"
+              description="Understanding the business impact of technical solutions"
             />
           </div>
         </div>
