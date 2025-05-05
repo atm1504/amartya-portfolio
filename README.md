@@ -4,6 +4,8 @@
 
 **URL**: https://lovable.dev/projects/8957fc9e-94cf-48fd-b59c-69f356fe8a1b
 
+**Hosted URL**: https://atm1504-dev.web.app
+
 ## How can I edit this code?
 
 There are several ways of editing your application.
